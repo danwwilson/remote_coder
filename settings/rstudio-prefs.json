@@ -1,0 +1,43 @@
+{
+    "panes": {
+        "quadrants": [
+            "Source",
+            "TabSet1",
+            "Console",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "VCS",
+            "Viewer"
+        ],
+        "console_left_on_top": false,
+        "console_right_on_top": true
+    },
+    "save_workspace": "never",
+    "load_workspace": false,
+    "initial_working_directory": "/data",
+    "show_last_dot_value": true,
+    "always_save_history": false,
+    "syntax_color_console": true,
+    "scroll_past_end_of_document": true,
+    "highlight_r_function_calls": true,
+    "auto_append_newline": true,
+    "strip_trailing_whitespace": true,
+    "restore_source_document_cursor_position": false,
+    "default_encoding": "UTF-8",
+    "spelling_dictionary_language": "en_AU",
+    "posix_terminal_shell": "bash",
+    "editor_theme": "Crimson Editor"
+}
