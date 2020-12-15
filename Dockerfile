@@ -61,7 +61,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## add regularly used packages
-RUN /rocker-scripts/install_packages.sh
+RUN /rocker_scripts/install_packages.sh
 
 RUN mkdir -p etc/rstudio/keybindings/ \
  && rm -r /home/rstudio/.rstudio/monitored/user-settings \
