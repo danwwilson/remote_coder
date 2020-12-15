@@ -91,6 +91,7 @@ RUN install2.r --error --skipinstalled -r $CRAN \
   fst \
   conflicted \
   dotenv \
+  languageserver \
   ## duckdb \
   pointblank \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
