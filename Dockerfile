@@ -28,8 +28,6 @@ RUN /rocker_scripts/install_rstudio.sh
 RUN /rocker_scripts/install_pandoc.sh
 RUN /rocker_scripts/install_verse.sh
 
-COPY scripts /rocker_scripts
-
 ## Install tools to support desired packages
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -61,7 +59,56 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 ## add regularly used packages
-RUN /rocker_scripts/install_packages.sh
+## COPY scripts /rocker_scripts
+## RUN /rocker_scripts/install_packages.sh
+RUN install2.r --error --skipinstalled -r $CRAN \
+  pak \
+  && R -e 'pak::pkg_install("usethis",
+                            "devtools",
+                            "rmarkdown",
+                            "RcppEigen",
+                            "lme4",
+                            "car",
+                            "zoo",
+                            "scales",
+                            "reshape2",
+                            "RPostgreSQL",
+                            "RSQLite",
+                            "Hmisc",
+                            "scales",
+                            "officer",
+                            "flextable",
+                            "xaringan",
+                            "ggthemes",
+                            "futile.logger",
+                            "dplyr",
+                            "readxl",
+                            "writexl",
+                            "drake",
+                            "extrafont",
+                            "visNetwork",
+                            "clustermq",
+                            "secret",
+                            "XLConnect",
+                            "fst",
+                            "conflicted",
+                            "dotenv",
+                            "duckdb",
+                            "pointblank",
+                            "tidyverse/tidyverse",
+                            "wilkelab/gridtext",
+                            "milesmcbain/fnmate",
+                            "milesmcbain/capsule",
+                            "thedatacollective/tdcthemes")' \
+  && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
+  && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
+  && R -e 'remotes::install_gitlab("thedatacollective/templatermd")' \
+  ##  && R -e 'remotes::install_github("stevenMMortimer/salesforcer", ref = "main")' \
+  && R -e 'remotes::install_version("salesforcer", version = "0.1.4", repos = "http://cran.us.r-project.org")' \
+  ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
+  ##  && R -e 'remotes::install_github("r-lib/hugodown")' \
+  && rm -rf /tmp/downloaded_packages/ \
+  && rm -rf /tmp/*.tar.gz
 
 RUN mkdir -p etc/rstudio/keybindings/ \
  && rm -r /home/rstudio/.rstudio/monitored/user-settings \
