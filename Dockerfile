@@ -63,42 +63,42 @@ RUN apt-get update \
 ## RUN /rocker_scripts/install_packages.sh
 RUN install2.r --error --skipinstalled -r $CRAN \
   pak \
-  && R -e 'pak::pkg_install("usethis",
-                            "devtools",
-                            "rmarkdown",
-                            "RcppEigen",
-                            "lme4",
-                            "car",
-                            "zoo",
-                            "scales",
-                            "reshape2",
-                            "RPostgreSQL",
-                            "RSQLite",
-                            "Hmisc",
-                            "scales",
-                            "officer",
-                            "flextable",
-                            "xaringan",
-                            "ggthemes",
-                            "futile.logger",
-                            "dplyr",
-                            "readxl",
-                            "writexl",
-                            "drake",
-                            "extrafont",
-                            "visNetwork",
-                            "clustermq",
-                            "secret",
-                            "XLConnect",
-                            "fst",
-                            "conflicted",
-                            "dotenv",
-                            "duckdb",
-                            "pointblank",
-                            "tidyverse/tidyverse",
-                            "wilkelab/gridtext",
-                            "milesmcbain/fnmate",
-                            "milesmcbain/capsule",
+  && R -e 'pak::pkg_install("usethis", \
+                            "devtools", \
+                            "rmarkdown", \
+                            "RcppEigen", \
+                            "lme4", \
+                            "car", \
+                            "zoo", \
+                            "scales", \
+                            "reshape2", \
+                            "RPostgreSQL", \
+                            "RSQLite", \
+                            "Hmisc", \
+                            "scales", \
+                            "officer", \
+                            "flextable", \
+                            "xaringan", \
+                            "ggthemes", \
+                            "futile.logger", \
+                            "dplyr", \
+                            "readxl", \
+                            "writexl", \
+                            "drake", \
+                            "extrafont", \
+                            "visNetwork", \
+                            "clustermq", \
+                            "secret", \
+                            "XLConnect", \
+                            "fst", \
+                            "conflicted", \
+                            "dotenv", \
+                            "duckdb", \
+                            "pointblank", \
+                            "tidyverse/tidyverse", \
+                            "wilkelab/gridtext", \
+                            "milesmcbain/fnmate", \
+                            "milesmcbain/capsule", \
                             "thedatacollective/tdcthemes")' \
   && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
   && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
