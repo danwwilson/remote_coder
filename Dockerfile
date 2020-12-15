@@ -62,47 +62,47 @@ RUN apt-get update \
 ## COPY scripts /rocker_scripts
 ## RUN /rocker_scripts/install_packages.sh
 RUN install2.r --error --skipinstalled -r $CRAN \
-  pak \
-  && R -e 'pak::pkg_install("usethis", \
-                            "devtools", \
-                            "rmarkdown", \
-                            "RcppEigen", \
-                            "lme4", \
-                            "car", \
-                            "zoo", \
-                            "scales", \
-                            "reshape2", \
-                            "RPostgreSQL", \
-                            "RSQLite", \
-                            "Hmisc", \
-                            "scales", \
-                            "officer", \
-                            "flextable", \
-                            "xaringan", \
-                            "ggthemes", \
-                            "futile.logger", \
-                            "dplyr", \
-                            "readxl", \
-                            "writexl", \
-                            "drake", \
-                            "extrafont", \
-                            "visNetwork", \
-                            "clustermq", \
-                            "secret", \
-                            "XLConnect", \
-                            "fst", \
-                            "conflicted", \
-                            "dotenv", \
-                            "duckdb", \
-                            "pointblank", \
-                            "tidyverse/tidyverse", \
-                            "wilkelab/gridtext", \
-                            "milesmcbain/fnmate", \
-                            "milesmcbain/capsule", \
-                            "thedatacollective/tdcthemes")' \
-  && R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")' \
-  && R -e 'remotes::install_gitlab("thedatacollective/tdcfun")' \
-  && R -e 'remotes::install_gitlab("thedatacollective/templatermd")' \
+  pak 
+ RUN R -e 'pak::pkg_install("usethis")'
+ RUN R -e 'pak::pkg_install("devtools")'
+ RUN R -e 'pak::pkg_install("rmarkdown")'
+ RUN R -e 'pak::pkg_install("RcppEigen")'
+ RUN R -e 'pak::pkg_install("lme4")'
+ RUN R -e 'pak::pkg_install("car")'
+ RUN R -e 'pak::pkg_install("zoo")'
+ RUN R -e 'pak::pkg_install("scales")'
+ RUN R -e 'pak::pkg_install("reshape2")'
+ RUN R -e 'pak::pkg_install("RPostgreSQL")'
+ RUN R -e 'pak::pkg_install("RSQLite")'
+ RUN R -e 'pak::pkg_install("Hmisc")'
+ RUN R -e 'pak::pkg_install("scales")'
+ RUN R -e 'pak::pkg_install("officer")'
+ RUN R -e 'pak::pkg_install("flextable")'
+ RUN R -e 'pak::pkg_install("xaringan")'
+ RUN R -e 'pak::pkg_install("ggthemes")'
+ RUN R -e 'pak::pkg_install("futile.logger")'
+ RUN R -e 'pak::pkg_install("dplyr")'
+ RUN R -e 'pak::pkg_install("readxl")'
+ RUN R -e 'pak::pkg_install("writexl")'
+ RUN R -e 'pak::pkg_install("drake")'
+ RUN R -e 'pak::pkg_install("extrafont")'
+ RUN R -e 'pak::pkg_install("visNetwork")'
+ RUN R -e 'pak::pkg_install("clustermq")'
+ RUN R -e 'pak::pkg_install("secret")'
+ RUN R -e 'pak::pkg_install("XLConnect")'
+ RUN R -e 'pak::pkg_install("fst")'
+ RUN R -e 'pak::pkg_install("conflicted")'
+ RUN R -e 'pak::pkg_install("dotenv")'
+ RUN R -e 'pak::pkg_install("duckdb")'
+ RUN R -e 'pak::pkg_install("pointblank")'
+ RUN R -e 'pak::pkg_install("tidyverse/tidyverse")'
+ RUN R -e 'pak::pkg_install("wilkelab/gridtext")'
+ RUN R -e 'pak::pkg_install("milesmcbain/fnmate")'
+ RUN R -e 'pak::pkg_install("milesmcbain/capsule")'
+ RUN R -e 'pak::pkg_install("thedatacollective/tdcthemes")'
+ RUN R -e 'install.packages("data.table", type = "source", repos = "http://Rdatatable.github.io/data.table")'
+ RUN R -e 'remotes::install_gitlab("thedatacollective/tdcfun")'
+ RUN R -e 'remotes::install_gitlab("thedatacollective/templatermd")' \
   ##  && R -e 'remotes::install_github("stevenMMortimer/salesforcer", ref = "main")' \
   && R -e 'remotes::install_version("salesforcer", version = "0.1.4", repos = "http://cran.us.r-project.org")' \
   ##  && R -e 'remotes::install_github("gaborcsardi/dotenv")' \
